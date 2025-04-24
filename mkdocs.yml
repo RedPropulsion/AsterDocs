@@ -1,0 +1,86 @@
+site_name: "My MkDoxy documentation"
+site_url: https://docs.redpropulsion.it/
+site_author: Red Propulsion
+site_description: >-
+  MkDoxy -> MkDocs + Doxygen. Easy documentation generator with code snippets.
+
+# Repository
+repo_name: redpropulsion/AsterCPP/
+repo_url: https://github.com/redpropulsion/AsterCPP/
+
+# Copyright
+copyright: Copyright © 2025 Red Propulsion
+
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.expand
+    - content.code.copy
+    - content.tabs
+    - navigation.tabs 
+
+plugins:
+  - search
+  - mkdoxy:
+      projects:
+        myProjectCpp: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: path/to/src/project1 # path to source code (support multiple paths separated by space) => INPUT
+          full-doc: True # if you want to generate full documentation
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+            RECURSIVE: True # recursive search in source directories
+
+  
+nav:
+  - Home: index.html
+  - API Reference:
+      - Overview: api/index.md
+  - Progetti:
+      - AsterCPP Aria:
+          #- Overview: api/myProjectCpp/index.md
+          #- API Reference: api/myProjectCpp/index.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - def_list
+  - toc:
+      permalink: True
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - markdown.extensions.md_in_html
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.blocks.admonition:
+      types:
+        - new
+        - settings
+        - note
+        - abstract
+        - info
+        - tip
+        - success
+        - question
+        - warning
+        - failure
+        - danger
+        - bug
+        - example
+        - quote
+  - pymdownx.blocks.details:
+  - pymdownx.blocks.html:
+  - pymdownx.blocks.definition:
+  - pymdownx.blocks.tab:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# riferimento: https://github.com/JakubAndrysek/MkDoxy/blob/main/mkdocs.yml
