@@ -1,0 +1,41 @@
+name: Genera Documentazione AsterCPP mkdocs + doxygen
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+# deve runnare anche quando viene fatta una PR sulla repo AsterCPP
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install system dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y doxygen graphviz python3-venv
+
+    - name: Set up Python virtual environment
+      run: |
+        python3 -m venv .venv
+        .venv/bin/pip install --upgrade pip
+        .venv/bin/pip install mkdocs-material
+    
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run Doxygen
+      run: doxygen Doxyfile
+
+    - name: Generate Markdown with mkdoxy
+      run: |
+        mkdir -p docs/api
+        /opt/mkdocs-venv/bin/mkdoxy \
+          --doxygen-output docs/doxygen/xml \
+          --output docs/api \
+          --project-name "Documentazione Progetto C" \
+          --create-toc
