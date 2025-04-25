@@ -11,31 +11,24 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-    - name: Install system dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y doxygen graphviz python3-venv
-
-    - name: Set up Python virtual environment
-      run: |
-        python3 -m venv .venv
-        .venv/bin/pip install --upgrade pip
-        .venv/bin/pip install mkdocs-material
-    
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Run Doxygen
-      run: doxygen Doxyfile
+    #- name: Run Doxygen
+    #  run: doxygen Doxyfile
 
-    - name: Generate Markdown with mkdoxy
+    - name: Generate Markdown from doxygen documentation with mkdoxy
       run: |
         mkdir -p docs/api
-        /opt/mkdocs-venv/bin/mkdoxy \
+          ${{ secrets.VENV_DIR }}/bin/mkdoxy \
           --doxygen-output docs/doxygen/xml \
           --output docs/api \
           --project-name "Documentazione Progetto C" \
           --create-toc
+    
+    - name: Deploy all documentation with mkdocs
+      run: ${{ secrets.VENV_DIR }}/bin/mkdocs-material gh-deploy --force
+    
