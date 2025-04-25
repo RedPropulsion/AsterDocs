@@ -18,10 +18,13 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
   features:
-    - navigation.expand
     - content.code.copy
     - content.tabs
+    - navigation.expand
+    - navigation.footer
+    - navigation.instant
     - navigation.tabs 
+    - toc.follow
 
 plugins:
   - search
@@ -33,16 +36,22 @@ plugins:
           doxy-cfg: # standard doxygen configuration (key: value)
             FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
             RECURSIVE: True # recursive search in source directories
+  - social
 
   
 nav:
-  - Home: index.html
+  - Home: index.md
   - API Reference:
       - Overview: api/index.md
   - Progetti:
       - AsterCPP Aria:
           #- Overview: api/myProjectCpp/index.md
           #- API Reference: api/myProjectCpp/index.md
+      - AsterCPP Obelics:
+          #- Overview: api/myProjectCpp/index.md
+          #- API Reference: api/myProjectCpp/index.md
+  - Runner:
+      - Overview: runner/index.md
 
 markdown_extensions:
   - pymdownx.highlight
@@ -83,4 +92,9 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-# riferimento: https://github.com/JakubAndrysek/MkDoxy/blob/main/mkdocs.yml
+# riferimento per mkdoxy: https://github.com/JakubAndrysek/MkDoxy/blob/main/mkdocs.yml
+
+extra:
+  social:
+    - icon: fontawesome/brands/mastodon 
+      link: https://fosstodon.org/@squidfunk
