@@ -1,5 +1,7 @@
 name: Genera Documentazione AsterCPP mkdocs + doxygen
-
+permissions:
+  contents: write
+  pages: write
 on:
   push:
     branches:
@@ -10,6 +12,7 @@ on:
 # deve runnare anche quando viene fatta una PR sulla repo AsterCPP
 
 jobs:
+  
   build:
     runs-on: ubuntu-latest
     steps:
