@@ -1,4 +1,4 @@
-site_name: "My MkDoxy documentation"
+site_name: "Red Propulsion Documentation"
 site_url: https://docs.redpropulsion.it/
 site_author: Red Propulsion
 site_description: >-
@@ -40,18 +40,18 @@ plugins:
 
   
 nav:
-  - Home: index.md
+  - Home: docs/index.md
   - API Reference:
-      - Overview: api/index.md
-  - Progetti:
-      - AsterCPP Aria:
+      - Overview: docs/index.md
+  #- Progetti:
+      #- AsterCPP Aria:
           #- Overview: api/myProjectCpp/index.md
           #- API Reference: api/myProjectCpp/index.md
-      - AsterCPP Obelics:
+      #- AsterCPP Obelics:
           #- Overview: api/myProjectCpp/index.md
           #- API Reference: api/myProjectCpp/index.md
   - Runner:
-      - Overview: runner/index.md
+      - Overview: docs/runner/index.md
 
 markdown_extensions:
   - pymdownx.highlight
