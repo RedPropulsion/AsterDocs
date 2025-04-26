@@ -2,7 +2,9 @@ site_name: "Red Propulsion Documentation"
 site_url: https://docs.redpropulsion.it/
 site_author: Red Propulsion
 site_description: >-
-  MkDoxy -> MkDocs + Doxygen. Easy documentation generator with code snippets.
+  Red Docs! Documentazione per HW e SW dei progetti sviluppati da Red Propulsion.
+docs_dir: docs
+
 
 # Repository
 repo_name: redpropulsion/AsterCPP/
@@ -30,19 +32,20 @@ plugins:
   - search
   - mkdoxy:
       projects:
-        myProjectCpp: # name of project must be alphanumeric + numbers (without spaces)
-          src-dirs: path/to/src/project1 # path to source code (support multiple paths separated by space) => INPUT
+        AsterCPP: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: doxy_output/AsterCPP # path to source code (support multiple paths separated by space) => INPUT
           full-doc: True # if you want to generate full documentation
           doxy-cfg: # standard doxygen configuration (key: value)
             FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
             RECURSIVE: True # recursive search in source directories
   - social
+  - mermaid2
 
   
 nav:
-  - Home: docs/index.md
+  - Home: index.md
   - API Reference:
-      - Overview: docs/index.md
+    - Overview: api/index.md
   #- Progetti:
       #- AsterCPP Aria:
           #- Overview: api/myProjectCpp/index.md
@@ -50,8 +53,22 @@ nav:
       #- AsterCPP Obelics:
           #- Overview: api/myProjectCpp/index.md
           #- API Reference: api/myProjectCpp/index.md
+  - Hardware:
+    - Overview: hw/index.md
+    - Asterics: 
+      - hw/asterics.md
+      - PWR: hw/asterics/pwr.md
+      - MCU: hw/asterics/mcu.md
+      - SENSR: hw/asterics/sensr.md
+      - TELEM: hw/asterics/telem.md
+    - Obelics: 
+      - hw/obelics.md
+      - Funzioni disponibili: hw/obelics/funzioni_disponibili.md
   - Runner:
-      - Overview: docs/runner/index.md
+    - Overview: runner/index.md
+    - DocsRunner: runner/config_runner.md
+  - Guida:
+    - guida/index.md
 
 markdown_extensions:
   - pymdownx.highlight
@@ -64,6 +81,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - markdown.extensions.md_in_html
+  - footnotes
   - pymdownx.snippets:
       check_paths: true
   - pymdownx.blocks.admonition:
