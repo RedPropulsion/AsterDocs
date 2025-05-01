@@ -56,6 +56,7 @@ nav:
   - Hardware:
     - Overview: hw/index.md
     - Asterics: 
+    #TODO: sistemare sta navigazione che non funziona
       - hw/asterics.md
       - PWR: hw/asterics/pwr.md
       - MCU: hw/asterics/mcu.md
@@ -67,8 +68,9 @@ nav:
   - Runner:
     - Overview: runner/index.md
     - DocsRunner: runner/config_runner.md
-  - Guida:
+  - Guida: 
     - guida/index.md
+    - Linee guida: guida/docs-guidelines.md
 
 markdown_extensions:
   - pymdownx.highlight
