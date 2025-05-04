@@ -40,6 +40,10 @@ plugins:
             RECURSIVE: True # recursive search in source directories
   - social
   - mermaid2
+  - tags:
+      listings_map:
+        custom-id:
+          toc: true
 
   
 nav:
@@ -77,9 +81,6 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  - toc:
-      permalink: True
-      check_paths: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.blocks.admonition:
