@@ -73,25 +73,15 @@ nav:
     - Linee guida: guida/docs-guidelines.md
 
 markdown_extensions:
-  - pymdownx.highlight
-  - pymdownx.superfences:
-      # make exceptions to highlighting of code:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid_custom
-
+  - admonition
+  - attr_list
   - def_list
+  - footnotes
   - toc:
       permalink: True
-  - pymdownx.superfences
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - markdown.extensions.md_in_html
-  - footnotes
-  - pymdownx.snippets:
       check_paths: true
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.blocks.admonition:
       types:
         - new
@@ -112,15 +102,27 @@ markdown_extensions:
   - pymdownx.blocks.html:
   - pymdownx.blocks.definition:
   - pymdownx.blocks.tab:
-  - pymdownx.tabbed:
-      alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
+  - markdown.extensions.md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+  - pymdownx.snippets:
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
 # riferimento per mkdoxy: https://github.com/JakubAndrysek/MkDoxy/blob/main/mkdocs.yml
 
 extra:
   social:
     - icon: fontawesome/brands/instagram 
       link: https://instagram.com/red_propulsion/
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
