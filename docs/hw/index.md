@@ -8,5 +8,5 @@
 - [RING](../hw/asterics/ring.md)
 
 ### Tutorial:
-[NEOPIXEL](../hw/peripheral/timer.md) \
+[NEOPIXEL](../hw/peripheral/addressable-led.md) \
 [TIMER](../hw/peripheral/timer.md)
