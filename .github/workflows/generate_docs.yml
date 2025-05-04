@@ -37,6 +37,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs-material mkdoxy mkdocs-material[imaging]
           pip install mkdocs-mermaid2-plugin markdown-callouts
+          pip install pymdown-extensions
 
       - name: Cache system packages
         uses: actions/cache@v4
