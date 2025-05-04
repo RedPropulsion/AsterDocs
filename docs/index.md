@@ -8,23 +8,23 @@ Welcome to the official documentation for Red Propulsion projects. This guide pr
 
 ### 1. [Home](index.md)
 
-   - Overview of the documentation repository.
+- Overview of the documentation repository.
 
 ### 2. [API Reference](api/index.md)
 
-   - Detailed API documentation for the AsterCPP project.
+- Detailed API documentation for the AsterCPP project.
 
-### 3. [Hardware](hardware/index.md)
+### 3. [Hardware](hw/index.md)
 
-   - **Asterics**:
-     - [PWR](hardware/asterics/pwr.md): Power systems documentation.
-     - [MCU](hardware/asterics/mcu.md): Microcontroller details.
-     - [SENSR](hardware/asterics/sensr.md): Sensor specifications.
-     - [TELEM](hardware/asterics/telem.md): Telemetry systems.
+- **Asterics**:
+  - [PWR](hw/asterics/pwr.md): Power systems documentation.
+  - [MCU](hw/asterics/mcu.md): Microcontroller details.
+  - [SENSR](hw/asterics/sensr.md): Sensor specifications.
+  - [TELEM](hw/asterics/telem.md): Telemetry systems.
 
-   - **Obelics**:
-     - [Overview](hardware/obelics.md): General information about Obelics.
-     - [Funzioni disponibili](hardware/obelics/funzioni_disponibili.md): Available functions.
+- **Obelics**:
+  - [Overview](hw/obelics.md): General information about Obelics.
+  - [Funzioni disponibili](hw/obelics/funzioni_disponibili.md): Available functions.
 
 ### 4. [Controls](controls/index.md)
 
@@ -32,12 +32,13 @@ Welcome to the official documentation for Red Propulsion projects. This guide pr
 
 ### 5. [Runner](runner/index.md)
 
-   - [Overview](runner/index.md): Introduction to the runner system.
-     - [DocsRunner](runner/config_runner.md): Configuration and workflow details for documentation runners.
+- [Overview](runner/index.md): Introduction to the runner system.
+- [DocsRunner](runner/config_runner.md): Configuration and workflow details for documentation runners.
 
 ### 6. [Guide varie](guide)
-   - [How to edit documentation](guide/edit-docs.md): quick start on how to edit the documentation
-   - [Guidelines](guide/docs-guidelines.md): rules to follow to mantain consistent documentation standards
+
+- [How to edit documentation](guide/edit-docs.md): quick start on how to edit the documentation
+- [Guidelines](guide/docs-guidelines.md): rules to follow to mantain consistent documentation standards
 
 ---
 

@@ -30,30 +30,30 @@ Per semplicità supponiamo di dover allocare un buffer da 100byte.
 
 ### Come utilizzare il timer (e il DMA) per inviare
 
-```info
+!!! info
 (tralasciamo inizialmente i discorsi operativi su come impostare la temporizzazione)
-```
+
 
 Abbiamo detto che i pixel comunicano con il duty cycle di un segnale pwm. Sappiamo che il periodo di questo segnale deve essere $1.25\mu s$. Abilitiamo il timer corretto per i pin che vogliamo usare, abilitiamo la funzione "pwm generation chx". Nel menù dei parametri impostiamo l'ARR (Auto Reload Register) in modo che la frequenza di lavoro sia $800 kHz$, mi segno anche questo valore perchè sarà utile tra poco.
 
 Adesso vado nella sezione DMA e abilito una richiesta per l'aggiornamento del DMA al canale appena abilitato. La direzione deve essere da memoria a periferica e la priorità è da vedere. ![alt text](neopixel-dma.png)
 Un'altro parametro da considerare è il "mode" ovvero se considerare il buffer dei pixel come circolare o normale. La differenza dovrebbe essere che nel caso del buffer circolare il dma non si ferma automaticamente (ma non prendete queste parole per vero, se lo testate correggetemi grazie). Impostare anche l'incremento di indirizzo nella memoria. La larghezza delle parole non è importante.
 
-```tip "Riassuntino"
+!!! tip "Riassuntino"
 - Chiamiamo tutti i dispositivi connessi **pixel**, ciascun pixel è composto da 3 led.
 - Per indicare il colore da mostrare su ciascun pixel abbiamo bisogno di 24 bit: 3 parole da 1 byte ordinate GRB con primo bit MSB
 - Per inviare ciascun bit utilizziamo un segnale PWM con dyty cycle specifico.
 - Dobbiamo inviare di seguito ciascun bit, se non inviamo alcun dato e lasciamo il "filo" basso per $t>280\mu s$ la comunicazione si resetta e possiamo reimpostare il primo pixel.
 - I pixel lavorano come degli shift register, ma al contrario: i primi 24 bit vanno al primo pixel, dal 25esimo al 49esimo al secondo e così via.
 - Per generare il segnale PWM a duty cycle utilizziamo una periferica timer del microcontrollore in combinazione al DMA per alleggerire il carico sulla logica di controllo
-```
+
 
 Per semplificare la comunicazione con i led, possiamo utilizzare il DMA: configuriamo la periferica timer in modo che utilizzi un canale del dma in modo che ogni volta che ha finito di trasmettere il singolo bit, il dma aggiorni il valore del registro *pulse* con il valore successivo. \
 Per fare questo abbiamo bisogno di 2 cose:
 1. un buffer abbastanza capiente per le informazioni dei led
-   ```note
+   !!! note
    è possibile anche usare un mezzo buffer e usare il callback corrispondente per risparmiare memoria
-   ```
+
 2. implementare da qualche parte il Callback del TIM PWM PulseFinishedCallback
 3. Implementare un metodo che faccia partire lo stream del DMA per il timer e il canale corretto
 
@@ -67,9 +67,9 @@ Dando per scontato il funzionamento di base, dobbiamo impostare il periodo di ri
 
 Troviamo quindi a quale dominio il nostro timer appartiene, ad esempio **APB2**. Adesso andiamo nella "clock configuration" dell'ioc e cerchiamo a quale frequenza lavora il corrispondente dominio.
 
-```warning
+!!! warning
 Questa sarà la frequenza in ingresso al timer $f_{tim}$
-```
+
 
 ### Calcolo dell'ARR
 
@@ -84,9 +84,9 @@ Possiamo inserire solo numeri interi, quindi nel caso in cui non venga un rappor
 
 Non resta che calcolare quanto deve valere il duty cycle per indicare il valore 0 e 1. Per farlo dobbiamo capire l'intervallo di tempo che il segnale generato dal timer rimanga alto e quanto basso. 
 
-```warning
-Questo parametro specialmente è dipendente dal tipo di neopixel usato, quindi è sempre meglio controllare sul datasheet
-```
+!!! warning
+    Questo parametro specialmente è dipendente dal tipo di neopixel usato, quindi è sempre meglio controllare sul datasheet
+
 
 Nel caso dei WS2812B-4020, abbiamo da rispettare questa *chiarissima* temporizzazione che si traduce nel fatto che per indicare uno $ZERO$ dobbiamo tenere il segnale alto per $1/4$ del periodo, mentre per indicare un $UNO$ dobbiamo stare intorno ai $3/4$ del periodo. Sperimentalmente si può provare diversi valori e spesso vale anche che lo $ZERO$ si ha quando il segnale è alto per $1/3$ e l'$UNO$ quando è alto per $2/3$
 ![alt text](neopixel-pwm-code-period.png){align=right, width=400}
