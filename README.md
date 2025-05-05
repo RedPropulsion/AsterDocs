@@ -3,3 +3,6 @@
 # AsterDocs
 
 Repo base per la documentazione del codice utilizzato nel sistema di schede a terra e in aria del team Red Propulsion
+
+
+hosted on: docs.redpropulsion.it
