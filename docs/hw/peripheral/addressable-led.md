@@ -94,10 +94,10 @@ Nel caso dei WS2812B-4020, abbiamo da rispettare questa *chiarissima* temporizza
 In ogni caso, dobbiamo capire come indicare al timer come impostare queste frazioni del periodo, per farlo dobbiamo impostare il valore nel registro *pulse*, o meglio, *dovremmo farlo* in quanto di questa operazione se ne occuperà il DMA e un nostro metodo incaricato di convertire la parola da 8bit in 8 parole da 16bit per il buffer da mandare al DMA.
 
 Quindi:
-\[
+\\[
 ZERO = (ARR+1) \cdot 1/4 \\
 UNO = (ARR+1) \cdot 3/4
-\]
+\\]
 
 Anche in questo caso è probabile che non si ottengano dei valori interi, per fortuna i neopixel non sono così fiscali con le temporizzazioni e quindi è possibile arrotondare all'intero più vicino senza che i simboli vengano fraintesi.
 
