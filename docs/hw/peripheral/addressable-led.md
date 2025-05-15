@@ -124,7 +124,7 @@ Si può usare sia il timer 8 che il timer 3. In entrambi i casi il canale è l'*
 
 ### Impostare il timer
 Supponendo di aver settato il clock ad una frequenza di $f_{clk}=100Mhz$.
-Dobbiamo andare a impostare l'AutoReloadRegister (ARR) in modo da ottenere il periodo da noi desiderato, quindi diremo che $$ ARR - 1 = \frac{f_{clk}}{f_{led}} = \frac{100MHz}{(1,25 \mu s)^{-1}} = \frac{100MHz}{800kHz} = 125 -1$$ (nota che il -1 è dovuto al fatto che nell'ioc devi mettere 124)
+Dobbiamo andare a impostare l'AutoReloadRegister (ARR) in modo da ottenere il periodo da noi desiderato, quindi diremo che $$ARR - 1 = \frac{f_{clk}}{f_{led}} = \frac{100MHz}{(1,25 \mu s)^{-1}} = \frac{100MHz}{800kHz} = 125 -1$$ (nota che il -1 è dovuto al fatto che nell'ioc devi mettere 124)
 
 A questo punto non resta che controllare che il registro "pulse" del canale corretto sia uguale a 0.
 
