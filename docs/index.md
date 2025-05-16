@@ -16,13 +16,15 @@ Welcome to the official documentation for Red Propulsion projects. This guide pr
 
 ### 3. [Hardware](hw/index.md)
 
-- **Asterics**:
+**Asterics**:
+
   - [PWR](hw/asterics/pwr.md): Power systems documentation.
   - [MCU](hw/asterics/mcu.md): Microcontroller details.
   - [SENSR](hw/asterics/sensr.md): Sensor specifications.
   - [TELEM](hw/asterics/telem.md): Telemetry systems.
 
-- **Obelics**:
+**Obelics**:
+
   - [Overview](hw/obelics.md): General information about Obelics.
   - [Funzioni disponibili](hw/obelics/funzioni_disponibili.md): Available functions.
 
@@ -37,9 +39,10 @@ Welcome to the official documentation for Red Propulsion projects. This guide pr
 
 ### 6. [Guide varie](guide)
 
-- [How to edit documentation](guide/edit-docs.md): quick start on how to edit the documentation
-- [Guidelines](guide/docs-guidelines.md): rules to follow to mantain consistent documentation standards
-
+- [How to edit documentation](guide/edit-docs.md): quick start on how to edit the documentation.
+- [Guidelines](guide/docs-guidelines.md): rules to follow to mantain consistent documentation standards.
+- [Build the project](guide/build-the-project.md): instructions to build the project outside the STM32 IDE.
+- [Debug the project](guide/debug-the-project.md): instructions to debug the project with CLion.
 ---
 
 ## Markdown Extensions for Commenting
