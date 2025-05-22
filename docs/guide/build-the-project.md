@@ -21,7 +21,7 @@ the version:
   ```
   Linux:
   ```
-  sudo apt-get install arm-none-eabi-gcc
+  sudo apt install gcc-arm-none-eabi
   ```
   Windows:
   ```
