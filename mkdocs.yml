@@ -48,6 +48,10 @@ plugins:
   
 nav:
   - Home: index.md
+  - AsterCPP:
+    - Overview: astercpp/index.md
+    - Architecture: astercpp/architecture.md
+    - Development: astercpp/development.md
   - API Reference:
     - Overview: api/index.md
   #- Progetti:
