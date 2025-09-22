@@ -75,9 +75,7 @@ Questa sarà la frequenza in ingresso al timer $f_{tim}$
 
 Dobbiamo configurare il timer in modo da ottenere la $f_{PWM}$ corretta. Per farlo dobbiamo trovare il valore del registro $ARR$ che consente questa divisione. Per trovarlo faremo quindi:
 
-\[
-ARR = \frac{f_{tim}}{f_{PWM}} - 1
-\]
+$$ARR = \frac{f_{tim}}{f_{PWM}} - 1$$
 Possiamo inserire solo numeri interi, quindi nel caso in cui non venga un rapporto intero si può approssimare.
 
 ### Calcolo DutyCycle bit
